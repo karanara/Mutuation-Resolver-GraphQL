@@ -1,0 +1,16 @@
+scalar Long
+
+type Author {
+ id :ID!
+ name:String!
+ age:Int
+ }
+ 
+ type Query {
+  findAllAuthors :[Author]!
+  countAuthors:Long!
+  }
+  
+  type Mutation {
+   createAuthor(name:String!,age:Int):Author!
+   }
