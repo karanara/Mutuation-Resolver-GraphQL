@@ -1,5 +1,7 @@
 package com.example.graphql2.Resolver;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,10 +12,11 @@ import com.example.graphql2.demo.Tutorial;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import graphql.scalars.ExtendedScalars;
+import graphql.schema.DataFetchingEnvironment;
 import graphql.schema.GraphQLScalarType;
 
 @Component
-public class Query implements GraphQLQueryResolver{
+public class QueryResolverClass implements GraphQLQueryResolver{
 
 	GraphQLScalarType longScalar = ExtendedScalars.newAliasedScalar("Long")
 	          .aliasedScalar(ExtendedScalars.GraphQLLong)
@@ -24,11 +27,12 @@ public class Query implements GraphQLQueryResolver{
 	@Autowired
 	private TutorialRepository tutorialRepository;
 	
-	public Iterable<Author> findAllAuthors(){
+	public Iterable<Author> findAllAuthors(DataFetchingEnvironment env){
+		System.out.println(authorRepository.findAll());
 		return authorRepository.findAll();
 	}
 	
-	public Iterable<Tutorial> findAllTutorials(){
+	public List<Tutorial> findAllTutorials(){
 		return tutorialRepository.findAll();
 	}
 	

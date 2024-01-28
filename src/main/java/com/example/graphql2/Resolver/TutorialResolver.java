@@ -4,6 +4,7 @@ import com.example.graphql2.demo.Author;
 import com.example.graphql2.demo.Tutorial;
 
 import graphql.kickstart.tools.GraphQLResolver;
+import graphql.schema.DataFetchingEnvironment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

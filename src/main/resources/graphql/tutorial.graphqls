@@ -1,3 +1,4 @@
+
 type Tutorial {
   id:ID!
   title:String!
@@ -7,7 +8,7 @@ type Tutorial {
   
   extend type Query {
    findAllTutorial :[Tutorial]!
-   countTutorials:Long!
+   countTutorials:Long
    }
    
    extend type Mutation {
